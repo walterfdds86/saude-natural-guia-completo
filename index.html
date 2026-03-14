@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Completo de Saúde Natural 🌿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage:       #3a6b4a;
+    --sage-d:     #2a5038;
+    --sage-l:     #eaf4ee;
+    --sage-m:     #7aab8a;
+    --amber:      #b8721e;
+    --amber-l:    #fdf4e3;
+    --rose:       #b04460;
+    --rose-l:     #fdeef3;
+    --blue:       #2d6494;
+    --blue-l:     #e8f2fb;
+    --gold:       #c9913a;
+    --cream:      #faf8f3;
+    --ink:        #1e2a1e;
+    --muted:      #5a6a5a;
+    --border:     rgba(58,107,74,.13);
+    --border-m:   rgba(58,107,74,.25);
+    --shadow:     0 2px 16px rgba(58,107,74,.08);
+    --shadow-m:   0 4px 32px rgba(58,107,74,.14);
+    --r:          12px;
+    --r-l:        18px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────────────── */
+  .hero {
+    position: relative;
+    background: var(--sage-d);
+    overflow: hidden;
+    padding: 72px 24px 60px;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(122,171,138,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(201,145,58,.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-leaves {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .leaf {
+    position: absolute;
+    font-size: 80px;
+    opacity: .06;
+    animation: drift 18s ease-in-out infinite;
+  }
+  .leaf:nth-child(1) { top: -10%; left: 5%;  animation-delay: 0s;   animation-duration: 20s; }
+  .leaf:nth-child(2) { top: 20%; right: 3%;  animation-delay: -6s;  animation-duration: 24s; font-size: 60px; }
+  .leaf:nth-child(3) { bottom: -5%; left: 40%; animation-delay: -12s; animation-duration: 16s; font-size: 100px; }
+  .leaf:nth-child(4) { top: 5%; left: 55%;  animation-delay: -4s;  animation-duration: 22s; font-size: 50px; }
+
+  @keyframes drift {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    33%      { transform: translateY(-18px) rotate(8deg); }
+    66%      { transform: translateY(10px) rotate(-5deg); }
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 12px; font-weight: 500;
+    color: rgba(255,255,255,.8);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: #a8d4b4;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,.65);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center;
+  }
+
+  .pill {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,.85);
+    font-weight: 400;
+    cursor: pointer;
+    transition: all .25s;
+  }
+
+  .pill:hover, .pill.active {
+    background: rgba(255,255,255,.22);
+    border-color: rgba(255,255,255,.4);
+    color: #fff;
+  }
+
+  /* ── NAV ──────────────────────────────────────── */
+  .nav-wrap {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+
+  .nav {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px 0;
+  }
+
+  .nav::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    white-space: nowrap;
+    padding: 8px 18px;
+    border-radius: 24px;
+    border: 1px solid transparent;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .22s;
+  }
+
+  .nav-btn:hover { background: var(--sage-l); color: var(--sage); border-color: var(--border-m); }
+  .nav-btn.active { background: var(--sage); color: #fff; border-color: var(--sage); }
+
+  /* ── MAIN ─────────────────────────────────────── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .section { display: none; }
+  .section.active { display: block; animation: fadeUp .35s ease; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .sec-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .sec-count {
+    font-size: 12px; color: var(--muted);
+    font-weight: 500; letter-spacing: .06em;
+  }
+
+  .sec-intro {
+    font-size: 15px; color: var(--muted);
+    line-height: 1.75; max-width: 760px;
+    margin-bottom: 36px;
+  }
+
+  /* ── CARDS GRID ───────────────────────────────── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-l);
+    padding: 22px;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    position: relative; overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sage), var(--sage-m));
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-m); border-color: var(--border-m); }
+  .card:hover::before { opacity: 1; }
+
+  .card-head { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 12px; }
+
+  .card-ico {
+    width: 42px; height: 42px;
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+
+  .ico-sage   { background: var(--sage-l); }
+  .ico-amber  { background: var(--amber-l); }
+  .ico-rose   { background: var(--rose-l); }
+  .ico-blue   { background: var(--blue-l); }
+  .ico-gold   { background: #fdf8e3; }
+
+  .card-name  { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.3; }
+  .card-latin { font-size: 11.5px; color: var(--muted); font-style: italic; margin-top: 2px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+
+  .tag {
+    font-size: 10.5px; font-weight: 500;
+    padding: 3px 10px; border-radius: 12px;
+  }
+
+  .tg { background: var(--sage-l);  color: var(--sage-d); }
+  .ta { background: var(--amber-l); color: #7a4a10; }
+  .tr { background: var(--rose-l);  color: #7a2040; }
+  .tb { background: var(--blue-l);  color: #1a4070; }
+
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+
+  .preparo {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 11px 13px;
+  }
+
+  .prep-label {
+    font-size: 9.5px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: .08em;
+    color: var(--sage); margin-bottom: 4px;
+  }
+
+  .prep-text { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+  .alerta {
+    margin-top: 10px;
+    font-size: 12px; color: #8a2020;
+    background: #fff5f3;
+    border-left: 3px solid #d45040;
+    border-radius: 0 7px 7px 0;
+    padding: 7px 11px;
+    line-height: 1.5;
+  }
+
+  .dica {
+    margin-top: 10px;
+    font-size: 12px; color: #1a4070;
+    background: var(--blue-l);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 7px 7px 0;
+    padding: 7px 11px;
+    line-height: 1.5;
+  }
+
+  /* ── TABLE ────────────────────────────────────── */
+  .table-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--border); margin-bottom: 28px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  thead tr { background: var(--sage-l); }
+  th {
+    padding: 12px 14px; text-align: left;
+    font-size: 11px; font-weight: 500; color: var(--sage-d);
+    letter-spacing: .05em; text-transform: uppercase;
+    border-bottom: 1px solid var(--border-m);
+  }
+
+  td { padding: 11px 14px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--sage-l); }
+  tbody tr:nth-child(even) { background: rgba(0,0,0,.018); }
+  tbody tr:nth-child(even):hover { background: var(--sage-l); }
+
+  .star { color: var(--gold); }
+
+  /* ── TIMELINE ─────────────────────────────────── */
+  .timeline { position: relative; }
+
+  .timeline::before {
+    content: '';
+    position: absolute; left: 19px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--sage-m), transparent);
+  }
+
+  .tl-item {
+    display: flex; gap: 20px;
+    margin-bottom: 20px;
+    animation: fadeUp .4s ease both;
+  }
+
+  .tl-dot {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--sage-l);
+    border: 2px solid var(--sage-m);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    position: relative; z-index: 1;
+  }
+
+  .tl-body {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 16px 18px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+
+  .tl-body:hover { border-color: var(--border-m); box-shadow: var(--shadow); }
+
+  .tl-hora { font-size: 11px; font-weight: 500; color: var(--sage); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 3px; }
+  .tl-acao { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  .tl-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  /* ── INFO BOXES ───────────────────────────────── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+
+  @media (max-width: 640px) { .info-grid { grid-template-columns: 1fr; } }
+
+  .info-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 20px;
+  }
+
+  .info-box.good  { border-left: 4px solid var(--sage); }
+  .info-box.bad   { border-left: 4px solid #d45040; }
+  .info-box.tip   { border-left: 4px solid var(--gold); background: #fdf8e3; }
+
+  .info-box h3 {
+    font-size: 14px; font-weight: 500; color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .info-box li {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.65; list-style: none;
+    padding: 4px 0; border-bottom: 1px solid var(--border);
+  }
+
+  .info-box li:last-child { border-bottom: none; }
+  .info-box li::before { content: '· '; color: var(--sage); font-weight: 700; }
+  .info-box.bad li::before { color: #d45040; }
+
+  /* ── SEASON CARDS ─────────────────────────────── */
+  .season-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  @media (max-width: 640px) { .season-grid { grid-template-columns: 1fr; } }
+
+  .season-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-l);
+    padding: 22px;
+    transition: transform .2s, box-shadow .2s;
+  }
+
+  .season-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-m); }
+
+  .season-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--ink); margin-bottom: 4px;
+  }
+
+  .season-sub { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 12px; }
+
+  /* ── DISCLAIMER ───────────────────────────────── */
+  .disclaimer {
+    background: var(--amber-l);
+    border: 1px solid rgba(201,145,58,.3);
+    border-radius: var(--r);
+    padding: 18px 22px;
+    font-size: 13px; color: #6b4c1a;
+    line-height: 1.7;
+    margin-top: 32px;
+  }
+
+  .disclaimer strong { font-weight: 500; }
+
+  /* ── FULL CARD ────────────────────────────────── */
+  .full-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-l);
+    padding: 22px;
+    margin-bottom: 14px;
+    transition: border-color .2s;
+  }
+
+  .full-card:hover { border-color: var(--border-m); }
+
+  .full-card-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; }
+
+  .obj-ico {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--sage-l);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+
+  .full-card-name { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+
+  /* ── FOOTER ───────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--muted);
+    background: #fff;
+  }
+
+  footer a { color: var(--sage); text-decoration: none; }
+
+  /* ── RESPONSIVE ───────────────────────────────── */
+  @media (max-width: 640px) {
+    .hero { padding: 48px 20px 44px; }
+    .cards { grid-template-columns: 1fr; }
+    .main { padding: 32px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-leaves">
+    <div class="leaf">🌿</div>
+    <div class="leaf">🍃</div>
+    <div class="leaf">🌿</div>
+    <div class="leaf">🍃</div>
+  </div>
+  <div class="hero-badge">🌿 Saúde Natural</div>
+  <h1 class="hero-title">Guia Completo de<br><em>Saúde Natural</em></h1>
+  <p class="hero-sub">Fitoterapia, nutrição funcional, rotinas e protocolos baseados em evidências científicas e medicina natural.</p>
+  <div class="hero-pills">
+    <span class="pill" onclick="goTo('chas')">🍃 Chás Medicinais</span>
+    <span class="pill" onclick="goTo('alimentos')">🥦 Alimentos</span>
+    <span class="pill" onclick="goTo('rotina')">☀️ Rotina Diária</span>
+    <span class="pill" onclick="goTo('objetivo')">🎯 Objetivos</span>
+    <span class="pill" onclick="goTo('sinergia')">⚗️ Sinergias</span>
+    <span class="pill" onclick="goTo('sazonalidade')">🍂 Sazonalidade</span>
+    <span class="pill" onclick="goTo('contra')">⚠️ Cuidados</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <button class="nav-btn active" data-sec="chas"        onclick="goTo('chas')">🍃 Chás</button>
+    <button class="nav-btn"        data-sec="alimentos"   onclick="goTo('alimentos')">🥦 Alimentos</button>
+    <button class="nav-btn"        data-sec="rotina"      onclick="goTo('rotina')">☀️ Rotina Diária</button>
+    <button class="nav-btn"        data-sec="objetivo"    onclick="goTo('objetivo')">🎯 Por Objetivo</button>
+    <button class="nav-btn"        data-sec="sinergia"    onclick="goTo('sinergia')">⚗️ Sinergias</button>
+    <button class="nav-btn"        data-sec="sazonalidade" onclick="goTo('sazonalidade')">🍂 Sazonalidade</button>
+    <button class="nav-btn"        data-sec="contra"      onclick="goTo('contra')">⚠️ Cuidados</button>
+  </nav>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ═══ CHÁS ═══ -->
+  <div class="section active" id="sec-chas">
+    <div class="sec-header">
+      <h2 class="sec-title">Chás Medicinais</h2>
+      <span class="sec-count">12 plantas</span>
+    </div>
+    <p class="sec-intro">Cada planta contém princípios ativos identificados com mecanismos de ação comprovados. A temperatura da água, tempo de infusão e combinações fazem diferença real na eficácia.</p>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-sage">🌼</div><div><div class="card-name">Camomila</div><div class="card-latin">Matricaria chamomilla</div></div></div>
+        <div class="tags"><span class="tag tg">Sono</span><span class="tag tg">Ansiedade</span><span class="tag ta">Digestão</span></div>
+        <div class="card-desc">Apigenina se liga a receptores GABA-A — mesmo mecanismo de ansiolíticos, sem dependência. Azuleno reduz inflamação gástrica. Evidências clínicas confirmam eficácia em ansiedade leve e distúrbios do sono.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">1 col. chá flores secas + 200ml a 90°C. Tampe 8 min. 2–3x/dia.</div></div>
+        <div class="dica">💡 Combinação ideal para insônia: camomila + valeriana + maracujá</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-amber">🫚</div><div><div class="card-name">Gengibre</div><div class="card-latin">Zingiber officinale</div></div></div>
+        <div class="tags"><span class="tag ta">Anti-inflamatório</span><span class="tag tr">Imunidade</span><span class="tag ta">Náusea</span></div>
+        <div class="card-desc">Gingeróis inibem COX-2 e LOX — mesmos alvos de anti-inflamatórios não esteroidais. Meta-análises confirmam eficácia em náuseas gestacionais, pós-quimioterapia e osteoartrite do joelho.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">3–4 fatias frescas + 300ml, ferver 12 min. Limão + mel. Ótimo com canela.</div></div>
+        <div class="dica">💡 Para náuseas: gengibre cristalizado ou chá frio com hortelã</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-rose">🌺</div><div><div class="card-name">Hibisco</div><div class="card-latin">Hibiscus sabdariffa</div></div></div>
+        <div class="tags"><span class="tag tr">Pressão arterial</span><span class="tag tb">Antioxidante</span><span class="tag tg">Diurético</span></div>
+        <div class="card-desc">Antocianinas inibem ECA (enzima conversora de angiotensina). Estudos no Journal of Nutrition mostram redução de 7–10 mmHg sistólica. Rico em vitamina C e ácidos orgânicos.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">1 col. sopa pétalas + 250ml a 80°C. Infusão 5 min. Excelente gelado.</div></div>
+        <div class="alerta">⚠️ Contraindicado em hipotensão. Interage com anti-hipertensivos.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-sage">🍃</div><div><div class="card-name">Erva-cidreira</div><div class="card-latin">Melissa officinalis</div></div></div>
+        <div class="tags"><span class="tag tg">Estresse</span><span class="tag tg">Sono</span><span class="tag ta">Digestão nervosa</span></div>
+        <div class="card-desc">Ácido rosmarínico inibe GABA transaminase — aumenta GABA disponível. ECR duplo-cego mostrou redução de 18% na ansiedade. Segura para uso diário, inclusive em crianças.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">10–12 folhas frescas ou 1 col. sopa seca + 200ml a 85°C. Tampe 10 min.</div></div>
+        <div class="dica">💡 Ideal para SII estresse-induzido com hortelã-pimenta</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-amber">🌿</div><div><div class="card-name">Hortelã-pimenta</div><div class="card-latin">Mentha piperita</div></div></div>
+        <div class="tags"><span class="tag ta">SII</span><span class="tag tg">Foco</span><span class="tag tr">Cefaleia</span></div>
+        <div class="card-desc">Mentol bloqueia canais de cálcio na musculatura lisa intestinal. Meta-análise Cochrane (2014) confirma eficácia no SII. Inalação melhora memória e alerta em 20–30 min.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">8–10 folhas frescas + 200ml a 90°C. Tampe 5 min. Após refeições.</div></div>
+        <div class="alerta">⚠️ Nunca combinar com homeopatia — mentol anula o efeito.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-blue">🌿</div><div><div class="card-name">Chá Verde</div><div class="card-latin">Camellia sinensis</div></div></div>
+        <div class="tags"><span class="tag tb">EGCG</span><span class="tag tg">Metabolismo</span><span class="tag tb">Neuroproteção</span></div>
+        <div class="card-desc">EGCG inibe NF-kB e reduz adipogênese. L-teanina + cafeína = "alerta calmo" único. Estudos populacionais japoneses associam consumo regular com menor risco de Alzheimer e Parkinson.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">1 col. chá + 180ml a 70–75°C (NUNCA ferver). 2–3 min. Limão aumenta catequinas em 80%.</div></div>
+        <div class="alerta">⚠️ Evitar após 15h. Não tomar em jejum. Reduz absorção de ferro.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-sage">💜</div><div><div class="card-name">Valeriana</div><div class="card-latin">Valeriana officinalis</div></div></div>
+        <div class="tags"><span class="tag tg">Insônia</span><span class="tag tg">GABA</span><span class="tag tg">Ansiedade</span></div>
+        <div class="card-desc">Valepotriatos modulam receptores GABA-A e inibem recaptação de serotonina. Meta-análise de 16 ECRs confirma melhora no sono sem dependência. Efeito pleno em 2–4 semanas de uso regular.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">1 col. chá de raiz + 200ml a 85°C. 10–15 min. Tomar 30–45 min antes de dormir.</div></div>
+        <div class="alerta">⚠️ Contraindicado na gestação. Potencializa benzodiazepínicos.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-gold">✨</div><div><div class="card-name">Ashwagandha</div><div class="card-latin">Withania somnifera</div></div></div>
+        <div class="tags"><span class="tag ta">Adaptógeno</span><span class="tag tg">Cortisol</span><span class="tag tb">Tireoide</span></div>
+        <div class="card-desc">Withanolidas reduzem cortisol sérico em até 27,9% (ECR 2012). Aumenta VO₂max, força muscular e cognição. Estimula hormônios tireoidianos. Um dos adaptógenos mais estudados da medicina ayurvédica.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">1 col. chá em pó + 250ml leite morno + mel. À noite. Ou cápsula 300–600mg/dia.</div></div>
+        <div class="alerta">⚠️ Contraindicado em hipertireoidismo e gestação.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-rose">🌸</div><div><div class="card-name">Maracujá</div><div class="card-latin">Passiflora incarnata</div></div></div>
+        <div class="tags"><span class="tag tg">Ansiedade</span><span class="tag tg">Sono</span><span class="tag tg">GABA natural</span></div>
+        <div class="card-desc">Crisina e vitexina têm afinidade com receptores benzodiazepínicos. ECR mostrou eficácia equivalente ao oxazepam 30mg para TAG — sem dependência nem comprometimento cognitivo.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">1 col. sopa folhas secas + 200ml a 85°C. 8 min tampado. 2x/dia ou à noite.</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-amber">🌻</div><div><div class="card-name">Equinácea</div><div class="card-latin">Echinacea purpurea</div></div></div>
+        <div class="tags"><span class="tag tr">Imunidade</span><span class="tag ta">Antiviral</span><span class="tag tr">Resfriado</span></div>
+        <div class="card-desc">Alquilamidas estimulam macrófagos e células NK. Meta-análise (Lancet ID, 2015): reduz duração do resfriado em 1,4 dias e risco de complicações em 58%. Mais eficaz no início dos sintomas.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">1 col. sopa raiz ou flores + 250ml fervente. 10 min. 3x/dia em quadros agudos.</div></div>
+        <div class="alerta">⚠️ Contraindicado em doenças autoimunes. Máx. 10 dias contínuos.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-amber">🟡</div><div><div class="card-name">Cúrcuma + Pimenta</div><div class="card-latin">Curcuma longa</div></div></div>
+        <div class="tags"><span class="tag ta">COX-2</span><span class="tag tb">Articulações</span><span class="tag ta">Intestino</span></div>
+        <div class="card-desc">Curcumina inibe NF-kB, COX-2 e TNF-alfa. Piperina aumenta biodisponibilidade em 2.000%. ECRs mostram eficácia comparável ao ibuprofeno na osteoartrite, com proteção gástrica adicional.</div>
+        <div class="preparo"><div class="prep-label">Golden Milk</div><div class="prep-text">1 col. chá cúrcuma + pitada de pimenta + mel + 200ml leite de coco morno.</div></div>
+        <div class="dica">💡 Associar com gordura (coco, ghee) amplifica ainda mais a absorção</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-ico ico-blue">🫐</div><div><div class="card-name">Boldo-do-Chile</div><div class="card-latin">Peumus boldus</div></div></div>
+        <div class="tags"><span class="tag ta">Fígado</span><span class="tag ta">Bile</span><span class="tag ta">Digestão</span></div>
+        <div class="card-desc">Boldina é o alcaloide mais potente da medicina popular brasileira para o fígado. Colerético e colagogo documentado — estimula secreção biliar e tem ação antioxidante hepática.</div>
+        <div class="preparo"><div class="prep-label">Como preparar</div><div class="prep-text">2–3 folhas secas + 200ml a 90°C. 5 min. Após refeições gordurosas. Ciclos de 3 semanas.</div></div>
+        <div class="alerta">⚠️ Hepatotóxico em excesso. Contraindicado na gravidez.</div>
+      </div>
+
+    </div><!-- /cards -->
+  </div><!-- /sec-chas -->
+
+  <!-- ═══ ALIMENTOS ═══ -->
+  <div class="section" id="sec-alimentos">
+    <div class="sec-header">
+      <h2 class="sec-title">Alimentos Funcionais</h2>
+      <span class="sec-count">16 alimentos</span>
+    </div>
+    <p class="sec-intro">Compostos bioativos que vão além da nutrição básica — modulam genes, microbiota, inflamação e sinalização hormonal. A dose certa faz a diferença.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Alimento</th><th>Princípio Ativo</th><th>Benefício Central</th><th>Dose Funcional</th><th>Potência</th></tr></thead>
+        <tbody>
+          <tr><td>🧄 Alho cru</td><td>Alicina, aliína</td><td>Antimicrobiano, reduz LDL e pressão</td><td>1–2 dentes crus/dia</td><td><span class="star">★★★★★</span></td></tr>
+          <tr><td>🫐 Mirtilo</td><td>Antocianinas, pterostilbeno</td><td>Neuroproteção, memória, visão</td><td>100g/dia</td><td><span class="star">★★★★★</span></td></tr>
+          <tr><td>🥦 Brócolis</td><td>Sulforafano, indol-3-carbinol</td><td>Detox hepático, anticancerígeno</td><td>100g cozido/dia</td><td><span class="star">★★★★★</span></td></tr>
+          <tr><td>🥑 Abacate</td><td>Glutationa, ômega-9, luteína</td><td>Cardiovascular, absorção antioxidantes</td><td>½ unidade/dia</td><td><span class="star">★★★★☆</span></td></tr>
+          <tr><td>🌰 Castanha-do-Pará</td><td>Selenometionina</td><td>Tireoide, imunidade, antioxidante</td><td>1–2 unidades/dia</td><td><span class="star">★★★★★</span></td></tr>
+          <tr><td>🐟 Sardinha</td><td>EPA, DHA, vitamina D</td><td>Anti-inflamatório sistêmico</td><td>2–3x/semana</td><td><span class="star">★★★★★</span></td></tr>
+          <tr><td>🍯 Mel cru</td><td>Propóleos, gluconolactona</td><td>Antimicrobiano, prebiótico</td><td>1 col. sopa/dia</td><td><span class="star">★★★★☆</span></td></tr>
+          <tr><td>🧅 Cebola roxa</td><td>Quercetina, inulina</td><td>Anti-histamínico natural, prebiótico</td><td>½ unidade crua/dia</td><td><span class="star">★★★★☆</span></td></tr>
+          <tr><td>🍋 Limão siciliano</td><td>Limoneno, vitamina C</td><td>Detox, imunidade, anticancerígeno</td><td>Suco de 1 limão/dia</td><td><span class="star">★★★★☆</span></td></tr>
+          <tr><td>🌿 Linhaça dourada</td><td>Lignanas, ALA, mucilagem</td><td>Hormônios, intestino, ômega-3</td><td>2 col. sopa moída/dia</td><td><span class="star">★★★★☆</span></td></tr>
+          <tr><td>🫘 Feijão preto</td><td>Amido resistente, antocianinas</td><td>Microbiota, glicemia, ferro</td><td>½ xícara/dia</td><td><span class="star">★★★★☆</span></td></tr>
+          <tr><td>🥚 Ovo caipira</td><td>Colina, luteína, zeaxantina</td><td>Cérebro, visão, vitamina D</td><td>2 ovos/dia</td><td><span class="star">★★★★☆</span></td></tr>
+          <tr><td>🫚 Azeite extra virgem</td><td>Oleocantal, polifenóis</td><td>Anti-inflamatório, cardiovascular</td><td>2–3 col. sopa/dia</td><td><span class="star">★★★★★</span></td></tr>
+          <tr><td>🌿 Açafrão (cúrcuma)</td><td>Curcumina (3–5%)</td><td>Anti-inflamatório sistêmico</td><td>1–2 col. chá + pimenta</td><td><span class="star">★★★★★</span></td></tr>
+          <tr><td>🍎 Maçã com casca</td><td>Quercetina, pectina, ác. ursólico</td><td>Microbiota, glicemia, músculo</td><td>1 unidade/dia com casca</td><td><span class="star">★★★☆☆</span></td></tr>
+          <tr><td>🧁 Cacau 70%+</td><td>Flavanóis, teobromina, magnésio</td><td>Cardiovascular, humor, cognição</td><td>25g/dia</td><td><span class="star">★★★★☆</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box tip">
+      <h3>🔬 Como maximizar a biodisponibilidade</h3>
+      <ul>
+        <li>Brócolis: picar e aguardar 40 min antes de cozinhar — sulforafano até 4x maior</li>
+        <li>Tomate cozido com azeite: licopeno disponível aumenta em 5x</li>
+        <li>Cúrcuma: sempre com pimenta-do-reino e gordura — absorção 2.000x maior</li>
+        <li>Ferro vegetal (feijão, lentilha): consumir com vitamina C dobra a absorção</li>
+        <li>Chá verde + limão: protege e aumenta catequinas disponíveis em 80%</li>
+        <li>Alho: consumir cru ou aguardar 10 min após picar antes de cozinhar</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ ROTINA ═══ -->
+  <div class="section" id="sec-rotina">
+    <div class="sec-header">
+      <h2 class="sec-title">Rotina Diária</h2>
+      <span class="sec-count">11 momentos chave</span>
+    </div>
+    <p class="sec-intro">O corpo funciona em ciclos circadianos — o horário certo amplifica cada intervenção. Seguir este protocolo por 30 dias produz mudanças mensuráveis em energia, sono e marcadores inflamatórios.</p>
+
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot">⏰</div><div class="tl-body"><div class="tl-hora">6h — Despertar</div><div class="tl-acao">Hidratação e ativação metabólica</div><div class="tl-desc">300ml de água morna + suco de ½ limão siciliano em jejum. Ativa trânsito intestinal, estimula bile e fornece vitamina C. Aguardar 20–30 min. Opcional: 1 dente de alho cru com mel — antimicrobiano máximo em jejum.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🌅</div><div class="tl-body"><div class="tl-hora">7h — Café da manhã</div><div class="tl-acao">Proteína + gordura boa + fibra</div><div class="tl-desc">Ovos caipiras, abacate ou azeite, frutas com casca. Chá verde com limão para foco, erva-cidreira para calma. Evitar pão branco, sucos industrializados e cereais processados.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🌞</div><div class="tl-body"><div class="tl-hora">9h — Suplementação</div><div class="tl-acao">Nutrientes essenciais biodisponíveis</div><div class="tl-desc">Vitamina D3 + K2 (com gordura da refeição). Ômega-3. Ashwagandha 300–600mg. 1–2 castanhas-do-pará (100% do selênio diário). Probiótico em jejum ou 30 min antes das refeições.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🌿</div><div class="tl-body"><div class="tl-hora">12h — Pré-almoço</div><div class="tl-acao">Ativar o sistema digestivo</div><div class="tl-desc">15 min antes: 1 col. sopa de vinagre de maçã orgânico em 100ml água ou chá de gengibre fresco. Estimula HCl e enzimas digestivas — melhora absorção de proteínas e minerais em ~30%.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🍽️</div><div class="tl-body"><div class="tl-hora">13h — Almoço</div><div class="tl-acao">Prato de alta densidade nutricional</div><div class="tl-desc">50% vegetais coloridos (variar cores = variar polifenóis), 25% proteína, 25% carboidratos complexos. Azeite frio. Mastigue lentamente — digestão começa na boca com amilases salivares.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🫖</div><div class="tl-body"><div class="tl-hora">14h — Suporte digestivo</div><div class="tl-acao">Fígado e intestino pós-almoço</div><div class="tl-desc">Boldo (refeição gordurosa), hortelã-pimenta (inchaço) ou funcho (gases). Evitar café por 60 min — compete com ferro. Caminhada leve 10–15 min reduz glicemia pós-prandial em ~20%.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🌇</div><div class="tl-body"><div class="tl-hora">16h — Lanche funcional</div><div class="tl-acao">Energia estável sem picos glicêmicos</div><div class="tl-desc">Frutas com casca, oleaginosas (30g), iogurte natural com mel e linhaça moída. Hibisco gelado para circulação. Cacau 70%+ com castanhas = polifenóis + magnésio + gordura boa.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🌆</div><div class="tl-body"><div class="tl-hora">18h — Exposição solar</div><div class="tl-acao">Vitamina D endógena + sincronização circadiana</div><div class="tl-desc">15–20 min sem protetor (braços e pernas). Sincroniza ritmo circadiano, estimula vitamina D3 e serotonina. Exercício concluir antes das 19h30 para não interferir na melatonina.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🌙</div><div class="tl-body"><div class="tl-hora">19h30 — Jantar leve</div><div class="tl-acao">Rico em triptofano para melatonina natural</div><div class="tl-desc">Peixe, frango, ovos ou leguminosas (triptofano → serotonina → melatonina). Banana madura com aveia e mel = protocolo clássico de indução natural do sono. Evitar refeições pesadas após 20h.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">🕯️</div><div class="tl-body"><div class="tl-hora">21h — Desaceleração</div><div class="tl-acao">Preparação para o sono restaurador</div><div class="tl-desc">Camomila com mel + valeriana ou maracujá. Magnésio glicinato 300mg (relaxa músculos, aprofunda sono). Luz azul reduzida. Temperatura ideal do quarto: 18–20°C. Respiração 4-7-8.</div></div></div>
+      <div class="tl-item"><div class="tl-dot">😴</div><div class="tl-body"><div class="tl-hora">22h30 — Sono</div><div class="tl-acao">Regeneração, detox cerebral e imunidade</div><div class="tl-desc">Sistema glinfático limpa metabólitos cerebrais. Horas 22h–2h = pico de GH e melatonina. 7–9h de sono é o maior anti-inflamatório, imunológico e neuroprotetor disponível gratuitamente.</div></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ OBJETIVO ═══ -->
+  <div class="section" id="sec-objetivo">
+    <div class="sec-header">
+      <h2 class="sec-title">Protocolos por Objetivo</h2>
+      <span class="sec-count">7 protocolos</span>
+    </div>
+    <p class="sec-intro">Protocolos combinados com base em evidências — cada um integrando fitoterapia, nutrição e hábitos para o objetivo específico.</p>
+
+    <div class="full-card"><div class="full-card-head"><div class="obj-ico">😴</div><div><div class="full-card-name">Insônia e qualidade do sono</div><div class="tags" style="margin-top:6px"><span class="tag tg">Valeriana</span><span class="tag tg">Camomila</span><span class="tag tg">Maracujá</span><span class="tag tg">Magnésio</span></div></div></div><div class="card-desc">Protocolo progressivo de 4 semanas. Sem 1–2: camomila + erva-cidreira 30 min antes de dormir. Sem 3–4: adicionar valeriana ou maracujá. Magnésio glicinato 300mg à noite. Eliminar cafeína após 13h. Horário fixo de despertar como âncora circadiana. Sem telas 1h antes. Temperatura 18–20°C.</div></div>
+
+    <div class="full-card"><div class="full-card-head"><div class="obj-ico">🔥</div><div><div class="full-card-name">Anti-inflamação sistêmica</div><div class="tags" style="margin-top:6px"><span class="tag ta">Cúrcuma</span><span class="tag ta">Gengibre</span><span class="tag tb">Ômega-3</span><span class="tag ta">Azeite</span></div></div></div><div class="card-desc">Golden milk diário + gengibre fresco. Sardinha 3x/semana. Eliminar açúcar refinado, farinha branca e óleos vegetais refinados. Azeite extra virgem em tudo. Curcumina + piperina + ômega-3 = tripé anti-inflamatório mais estudado da natureza.</div></div>
+
+    <div class="full-card"><div class="full-card-head"><div class="obj-ico">💪</div><div><div class="full-card-name">Imunidade reforçada</div><div class="tags" style="margin-top:6px"><span class="tag tr">Equinácea</span><span class="tag ta">Gengibre</span><span class="tag ta">Alho</span><span class="tag tb">Vitamina D</span></div></div></div><div class="card-desc">Preventivo: alho cru diário + vitamina C (acerola) + D3/K2 + zinco. Em quadros agudos: equinácea 3x/dia por 7–10 dias + gengibre com limão e mel + própolis EV. Eliminar açúcar em quadros agudos — suprime imunidade por horas. Sono 8h é o maior imunológico.</div></div>
+
+    <div class="full-card"><div class="full-card-head"><div class="obj-ico">🧠</div><div><div class="full-card-name">Cognição e foco</div><div class="tags" style="margin-top:6px"><span class="tag tb">Chá verde</span><span class="tag ta">Ashwagandha</span><span class="tag tb">DHA</span></div></div></div><div class="card-desc">Manhã: chá verde com limão (L-teanina + EGCG + cafeína = foco calmo). Ômega-3 DHA diário. Ashwagandha 600mg pela manhã (efeito cumulativo em 8 semanas). Mirtilo diário. Meditação e exercício físico potencializam todos os efeitos neuroprotetores.</div></div>
+
+    <div class="full-card"><div class="full-card-head"><div class="obj-ico">🫀</div><div><div class="full-card-name">Saúde cardiovascular</div><div class="tags" style="margin-top:6px"><span class="tag tr">Hibisco</span><span class="tag ta">Alho</span><span class="tag tb">Ômega-3</span><span class="tag ta">Cacau 70%</span></div></div></div><div class="card-desc">Hibisco gelado diário (inibidor natural de ECA). Alho cru em jejum. Sardinha 3x/semana. Azeite extra virgem 3 col./dia. Cacau 70%+ pelos flavanóis. Eliminar gorduras trans. Movimento diário mínimo 30 min. Gerenciar estresse crônico — cortisol eleva LDL oxidado.</div></div>
+
+    <div class="full-card"><div class="full-card-head"><div class="obj-ico">🌿</div><div><div class="full-card-name">Saúde intestinal e microbiota</div><div class="tags" style="margin-top:6px"><span class="tag tg">Probióticos</span><span class="tag tg">Prebióticos</span><span class="tag tg">L-glutamina</span></div></div></div><div class="card-desc">Kefir ou iogurte natural diário. Cebola, alho, banana verde, aveia (prebióticos). Erva-cidreira + hortelã para SII. L-glutamina 5g em jejum para intestino permeável. Eliminar glúten processado por 30 dias como reset diagnóstico.</div></div>
+
+    <div class="full-card"><div class="full-card-head"><div class="obj-ico">⚡</div><div><div class="full-card-name">Energia e fadiga adrenal</div><div class="tags" style="margin-top:6px"><span class="tag ta">Ashwagandha</span><span class="tag tg">Rhodiola</span><span class="tag tb">Magnésio</span><span class="tag tb">Complexo B</span></div></div></div><div class="card-desc">Fase 1 (sem 1–4): regular o sono (valeriana + magnésio) + eliminar estimulantes excessivos. Fase 2 (sem 5–8): ashwagandha 600mg + vitaminas B + ômega-3. Fase 3 (sem 9–12): rhodiola rosea + ginseng siberiano. Dieta anti-inflamatória durante todo o processo.</div></div>
+
+  </div>
+
+  <!-- ═══ SINERGIAS ═══ -->
+  <div class="section" id="sec-sinergia">
+    <div class="sec-header"><h2 class="sec-title">Sinergias e Combinações</h2></div>
+    <p class="sec-intro">Algumas combinações multiplicam o efeito terapêutico. Outras, combinadas de forma errada, podem antagonizar ou até causar danos.</p>
+
+    <div class="info-grid">
+      <div class="info-box good">
+        <h3>✅ Combinações que potencializam</h3>
+        <ul>
+          <li>Cúrcuma + pimenta + gordura → absorção 2.000x maior</li>
+          <li>Camomila + valeriana + maracujá → sono profundo sinérgico</li>
+          <li>Gengibre + limão + mel → imunidade + digestão + antimicrobiano</li>
+          <li>Chá verde + limão → catequinas +80%</li>
+          <li>Ferro vegetal + vitamina C → absorção duplicada</li>
+          <li>Vitamina D3 + K2 → D3 sem K2 pode calcificar artérias</li>
+          <li>Ômega-3 + astaxantina → proteção lipídica superior</li>
+          <li>Brócolis cru picado + 40 min → sulforafano máximo</li>
+          <li>Alho + cebola + azeite → sulfurados + quercetina + polifenóis</li>
+        </ul>
+      </div>
+      <div class="info-box bad">
+        <h3>❌ Combinações a evitar</h3>
+        <ul>
+          <li>Hortelã + homeopatia → mentol anula o efeito</li>
+          <li>Chá verde + ferro → catequinas quelam o ferro</li>
+          <li>Hibisco + anti-hipertensivos → hipotensão excessiva</li>
+          <li>Valeriana + álcool → sedação perigosa</li>
+          <li>Equinácea + imunossupressores → antagonismo direto</li>
+          <li>Boldo + gestação → contrações uterinas</li>
+          <li>Ashwagandha + hipertireoidismo → estimula T3/T4</li>
+          <li>Alcaçuz + hipertensão → retém sódio</li>
+          <li>Múltiplos estimulantes → chá verde + guaraná + café juntos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box tip" style="margin-bottom:0">
+      <h3>🔄 Rotação inteligente de adaptógenos</h3>
+      <ul>
+        <li>Use em ciclos: 6–8 semanas ON → 2–3 semanas OFF (evita tolerância)</li>
+        <li>Ashwagandha — inverno e alto estresse (reduz cortisol, melhora sono)</li>
+        <li>Rhodiola rosea — primavera e alta demanda cognitiva (energia e foco)</li>
+        <li>Ginseng siberiano — verão e esportes (endurance e adaptação)</li>
+        <li>Maca peruana — outono (equilíbrio hormonal, libido, menopausa)</li>
+        <li>Nunca combinar dois adaptógenos estimulantes simultaneamente</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SAZONALIDADE ═══ -->
+  <div class="section" id="sec-sazonalidade">
+    <div class="sec-header"><h2 class="sec-title">Sazonalidade</h2></div>
+    <p class="sec-intro">A natureza oferece os alimentos certos em cada estação. Alinhar a alimentação com as estações é um princípio da medicina tradicional chinesa, ayurvédica e hoje corroborado pela cronobiologia.</p>
+
+    <div class="season-grid">
+      <div class="season-card">
+        <div class="season-name">☀️ Verão</div>
+        <div class="season-sub">Hidratação · leveza · frescor</div>
+        <div class="tags"><span class="tag tr">Hibisco</span><span class="tag tg">Hortelã</span><span class="tag tg">Capim-limão</span></div>
+        <div class="card-desc" style="margin:10px 0 12px">Foco: hidratação, proteção solar interna, digestão leve.</div>
+        <div class="preparo"><div class="prep-label">Alimentos chave</div><div class="prep-text">Melancia (licopeno), pepino, abacaxi (bromelina), coco (eletrólitos), frutas vermelhas. Chás frios de hibisco, hortelã e erva-cidreira. Evitar alimentos pesados e quentes.</div></div>
+      </div>
+      <div class="season-card">
+        <div class="season-name">🍂 Outono</div>
+        <div class="season-sub">Transição · imunidade preventiva</div>
+        <div class="tags"><span class="tag tr">Equinácea</span><span class="tag ta">Gengibre</span><span class="tag tg">Tomilho</span></div>
+        <div class="card-desc" style="margin:10px 0 12px">Foco: preparar imunidade para o inverno, fortalecer pulmões.</div>
+        <div class="preparo"><div class="prep-label">Alimentos chave</div><div class="prep-text">Abóbora (beta-caroteno), maçã com casca, romã, castanhas, beterraba. Tomilho com mel para vias aéreas. Iniciar vitamina D3.</div></div>
+      </div>
+      <div class="season-card">
+        <div class="season-name">❄️ Inverno</div>
+        <div class="season-sub">Imunidade · aquecimento · raízes</div>
+        <div class="tags"><span class="tag ta">Gengibre</span><span class="tag ta">Canela</span><span class="tag tr">Própolis</span></div>
+        <div class="card-desc" style="margin:10px 0 12px">Foco: combate viral, aquecimento interno, suporte adrenal.</div>
+        <div class="preparo"><div class="prep-label">Alimentos chave</div><div class="prep-text">Alho, cebola, batata-doce, peixes gordurosos. Chá chai: gengibre + canela + cravo + cardamomo. Golden milk à noite. Caldo de ossos.</div></div>
+      </div>
+      <div class="season-card">
+        <div class="season-name">🌸 Primavera</div>
+        <div class="season-sub">Detox · renovação · vitalidade</div>
+        <div class="tags"><span class="tag tg">Dente-de-leão</span><span class="tag ta">Boldo</span><span class="tag tg">Alcachofra</span></div>
+        <div class="card-desc" style="margin:10px 0 12px">Foco: drenagem linfática, detox hepático, renovação celular.</div>
+        <div class="preparo"><div class="prep-label">Alimentos chave</div><div class="prep-text">Brócolis, espinafre, rúcula, salsinha, aspargos (prebiótico). Alcachofra + boldo + dente-de-leão: reset hepático de 21 dias. Suco verde em jejum.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CUIDADOS ═══ -->
+  <div class="section" id="sec-contra">
+    <div class="sec-header"><h2 class="sec-title">Cuidados e Contraindicações</h2></div>
+    <p class="sec-intro">Plantas medicinais são farmacologicamente ativas. Interagem com medicamentos, têm contraindicações em condições específicas e podem causar efeitos adversos em doses inadequadas.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Planta / Alimento</th><th>Contraindicações</th><th>Interações Medicamentosas</th><th>Limite de Uso</th></tr></thead>
+        <tbody>
+          <tr><td>🌿 Alcaçuz</td><td>Hipertensão, ins. renal, gravidez</td><td>Corticoides, diuréticos</td><td>Máx. 4 semanas</td></tr>
+          <tr><td>🌺 Hibisco</td><td>Hipotensão, gravidez</td><td>Anti-hipertensivos, diuréticos</td><td>Moderado ok</td></tr>
+          <tr><td>🌿 Equinácea</td><td>Doenças autoimunes, transplantados</td><td>Imunossupressores, ciclosporina</td><td>10 dias ON/OFF</td></tr>
+          <tr><td>💜 Valeriana</td><td>Gestação, crianças &lt; 3 anos</td><td>Benzodiazepínicos, álcool</td><td>Máx. 8 semanas</td></tr>
+          <tr><td>✨ Ashwagandha</td><td>Hipertireoidismo, gestação</td><td>Imunossupressores, sedativos</td><td>8 sem ON / 4 OFF</td></tr>
+          <tr><td>🫐 Boldo</td><td>Gestação, obstrução biliar</td><td>Anticoagulantes, hepatotóxicos</td><td>Máx. 3 semanas</td></tr>
+          <tr><td>🧄 Alho medicinal</td><td>Pré-cirurgia (anticoagulante)</td><td>Warfarina, antiplaquetários</td><td>Suspender 2 sem</td></tr>
+          <tr><td>🌿 Ginkgo biloba</td><td>Pré-cirurgia, epilepsia</td><td>Warfarina, AAS, IMAO</td><td>Máx. 12 semanas</td></tr>
+          <tr><td>🟡 Cúrcuma alta dose</td><td>Cálculos biliares, gestação</td><td>Anticoagulantes</td><td>Culinária: livre</td></tr>
+          <tr><td>🌸 Maracujá</td><td>Hipotensão, crianças pequenas</td><td>Sedativos, ansiolíticos, álcool</td><td>Regular ok</td></tr>
+          <tr><td>🌼 Camomila</td><td>Alergia a asteráceas</td><td>Warfarina em uso crônico alto</td><td>Uso diário ok</td></tr>
+          <tr><td>🫚 Gengibre alta dose</td><td>Pré-cirurgia, refluxo severo</td><td>Anticoagulantes (altas doses)</td><td>Culinária: livre</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="disclaimer">
+      <strong>⚕️ Aviso profissional:</strong> Este guia tem caráter exclusivamente educativo e informativo, fundamentado em literatura fitoterápica e nutricional científica. <strong>Não substitui consulta médica, nutricional ou farmacêutica.</strong> Em caso de gestação, lactação, doenças crônicas, uso de medicamentos ou condições de saúde específicas, consulte sempre um profissional de saúde habilitado antes de iniciar qualquer protocolo natural.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>🌿 Guia Completo de Saúde Natural &nbsp;·&nbsp; Conteúdo educativo e informativo</p>
+  <p style="margin-top:6px; font-size:11px; opacity:.7">Não substitui acompanhamento médico profissional</p>
+</footer>
+
+<script>
+  function goTo(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+
+    const sec = document.getElementById('sec-' + id);
+    if (sec) sec.classList.add('active');
+
+    const btn = document.querySelector(`.nav-btn[data-sec="${id}"]`);
+    if (btn) btn.classList.add('active');
+
+    document.querySelector('.main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Stagger timeline items
+  document.querySelectorAll('.tl-item').forEach((el, i) => {
+    el.style.animationDelay = (i * 0.05) + 's';
+  });
+</script>
+</body>
+</html>
